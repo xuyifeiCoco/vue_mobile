@@ -1,7 +1,7 @@
 
 import Vue from 'vue'
 import Router from 'vue-router';
-import indexRouter from '@/view/index/index_router'
+import indexRouter from '@/views/index/index_router'
 
 
 
@@ -13,7 +13,7 @@ const routes = [
   {
     name: '404',
     path: '/404',
-    component: () => import('./views/404.vue'),
+    component: () => import('@/views/404.vue'),
     meta: {
       title: '未找到'
     },

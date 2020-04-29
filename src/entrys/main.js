@@ -4,7 +4,7 @@ import 'amfe-flexible/index.js'
 import globalFun from '@/globalFun/index'
 import VsConsole from 'vconsole'
 import commenComponent from '@/common_components/index'
-import { router } from '@/router'
+import { router } from '@/routers/router'
 import store from '@/store/index'
 import '@/util/vant.js'
 Vue.use(commenComponent) // 注册全局组件
