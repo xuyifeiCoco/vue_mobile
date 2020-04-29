@@ -1,3 +1,4 @@
+const entryConfig = require('./entry_config');
 const path = require('path')
 
 function resolve(dir) {
@@ -15,11 +16,19 @@ function addStyleResource(rule) {
         })
 }
 
+const {
+    // moduleName
+    pages, outputDir
+} = entryConfig;
+
 module.exports = {
-    outputDir: './dist',
+    outputDir,
     publicPath: './',
+    pages,
     runtimeCompiler: true, //关键点在这  原来的 Compiler 换成了 runtimeCompiler
     chainWebpack: (config) => {
+        // ["babel-polyfill", "./src/main.js"]
+
         config.resolve.alias.set(
             '@', resolve('src')
         )

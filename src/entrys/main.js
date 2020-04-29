@@ -1,12 +1,12 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from '@/app/App.vue'
 import 'amfe-flexible/index.js'
 import globalFun from '@/globalFun/index'
 import VsConsole from 'vconsole'
-import commenComponent from './common_components/index'
-import { router } from './router'
-import store from './store/index'
-import './util/vant.js'
+import commenComponent from '@/common_components/index'
+import { router } from '@/router'
+import store from '@/store/index'
+import '@/util/vant.js'
 Vue.use(commenComponent) // 注册全局组件
 Vue.use(globalFun) //注册全局方法
 

@@ -13,7 +13,7 @@ const routes = [
   {
     name: '404',
     path: '/404',
-    component: () => import('./view/404.vue'),
+    component: () => import('./views/404.vue'),
     meta: {
       title: '未找到'
     },

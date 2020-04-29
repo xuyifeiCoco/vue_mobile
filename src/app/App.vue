@@ -26,7 +26,9 @@ export default {
       return this.$store.state.user.userInfor;
     }
   },
-  mounted() {}
+  mounted() {
+    console.log(222)
+  }
 };
 </script>
 
