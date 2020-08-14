@@ -27,7 +27,6 @@ export default {
     }
   },
   mounted() {
-    console.log(222)
   }
 };
 </script>
@@ -40,5 +39,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
 }
 </style>
