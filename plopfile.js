@@ -42,13 +42,13 @@ module.exports = (plop) => {
         actions = actions.concat(
           {
             type: "add",
-            path: "src/index.js",
+            path: "src/template/index.js", // 生成文件的路径
             templateFile: "ceshi.txt",
           },
           {
             type: "add",
-            path: "src/index.txt",
-            templateFile: "ceshi.txt",
+            path: "src/template/index.txt",
+            templateFile: "ceshi.txt", //模板路径
           }
         );
       }

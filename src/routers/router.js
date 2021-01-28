@@ -1,34 +1,31 @@
-
-import Vue from 'vue'
-import Router from 'vue-router';
-import indexRouter from '@/views/index/index_router'
-
-
+import Vue from "vue";
+import Router from "vue-router";
+import indexRouter from "@/views/index/index_router";
 
 Vue.use(Router);
 
 const routes = [
-  { path: '/', redirect: '/index' },
+  { path: "/", redirect: "quanjing" },
   ...indexRouter,
   {
-    name: '404',
-    path: '/404',
-    component: () => import('@/views/404.vue'),
+    name: "404",
+    path: "/404",
+    component: () => import("@/views/404.vue"),
     meta: {
-      title: '未找到'
+      title: "未找到",
     },
   },
-  { path: '*', redirect: '/404' }
+  { path: "*", redirect: "/404" },
 ];
 
 // add route path
-routes.forEach(route => {
-  route.path = route.path || '/' + (route.name || '');
+routes.forEach((route) => {
+  route.path = route.path || "/" + (route.name || "");
 });
 
-const router = new Router({ routes, linkActiveClass: 'active' });
+const router = new Router({ routes, linkActiveClass: "active" });
 router.beforeEach((to, from, next) => {
-  const title = to.meta && to.meta.title || '';
+  const title = (to.meta && to.meta.title) || "";
   if (title) {
     document.title = title;
   }
@@ -48,6 +45,4 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-export {
-  router
-};
+export { router };
