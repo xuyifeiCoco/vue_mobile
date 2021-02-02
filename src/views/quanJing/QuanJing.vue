@@ -1,31 +1,44 @@
 <template>
-  <div
-    class="container"
-    ref="container"
-    @touchstart='touchStart'
-    @touchmove="gtouchmove"
-    @touchend="gtouchend"
-  >
-    <img
-      :src="currentUrl"
-      alt=""
+  <div>
+    <div
+      v-if="loaded"
+      class="container"
+      ref="container"
+      @touchstart='touchStart'
+      @touchmove="gtouchmove"
+      @touchend="gtouchend"
     >
+      <img
+        :src="currentUrl"
+        alt=""
+      >
+    </div>
+    <div v-else>
+      正在加载资源...
+    </div>
   </div>
+
 </template>
 
 <script>
-import { dataStr } from './dict'
+// import { request } from 'youdi_utils'
 export default {
   name: "QuanJing",
+  props: {
+    list: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
     return {
-      list: JSON.parse(dataStr).map(it => it.Url),
       currentUrl: '',
       deg: 15,
       currentIndex: 0,
       startPos: '',
       movePos: "",
-      endPos: ''
+      endPos: '',
+      loaded: false
     }
   },
   async mounted () {
@@ -80,6 +93,7 @@ export default {
       // const res = this.getPos(e)
       // console.log('移动结束');
     },
+
     async loadImg () {
       // console.log(this.list.length);
       return new Promise((rel) => {
@@ -93,12 +107,13 @@ export default {
             };
           })
         }
-        Promise.all(promiseAll).then(img => {
-          console.log(img);
+        Promise.all(promiseAll).then(() => {
           // 全部图片加载完成
           rel(true)
+          this.loaded = true
         }).catch(err => {
           console.log(err);
+          this.loaded = true
           rel(false)
         })
       })
@@ -111,8 +126,9 @@ export default {
 <style >
 .container {
   background: yellowgreen;
+  font-size: 0;
 }
 .container img {
-  width: 300px;
+  width: 100%;
 }
 </style>

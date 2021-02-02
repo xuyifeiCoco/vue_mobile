@@ -11,7 +11,7 @@ const indexRouter = [
   {
     name: "quanjing",
     path: "/quanjing",
-    component: () => import("../quanJing/QuanJing.vue"),
+    component: () => import("../quanJing/index.vue"),
     meta: {
       title: "全景",
       keepAlive: true,
